@@ -1,4 +1,4 @@
-# mbta-train-tracker
+# mbta
 A simple website to track those MBTA trains
 
 
