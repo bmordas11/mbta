@@ -1,9 +1,8 @@
 # mbta
-A simple website to track those MBTA trains
+A simple website to track the MBTA Commuter Rail
 
 
-# This README would normally document whatever steps are necessary to get the
-# application up and running.
+# This README would normally document whatever steps are necessary to get the application up and running.
 
 Things you may want to cover:
 
@@ -24,3 +23,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+--------------------

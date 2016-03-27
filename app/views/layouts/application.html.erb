@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MbtaTrainTracker</title>
+  <title>MBTA</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+  <% end %>
 
-<%= yield %>
+  <div class="top-bar">
+    <div class="top-bar-section container">
+      <ul class="menu">
+        <li><%= link_to 'Frequently Viewed Commuter Rails', commuters_path %></li>
+        <li><%= link_to 'Wellesley Farms Stop', root_path %></li>
+      <ul>
+    </div>
+  </div>
+
+  <div class="row column">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
