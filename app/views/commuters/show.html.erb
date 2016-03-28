@@ -9,3 +9,15 @@
     <li>Predicted departure: <%= train[:predicted_departure] %></li>
   </ul>
 <% end %>
+
+<h1>Framingham/Worcester Line (South Station)</h1>
+
+<%= @inbound_scheduled_departure %>
+<%= @outbound_scheduled_departure %>
+<% @south_station_trains.each do |train| %>
+  <%= train[:direction] %>:
+  <ul>
+    <li>Scheduled departure: <%= train[:scheduled_departure] %></li>
+    <li>Predicted departure: <%= train[:predicted_departure] %></li>
+  </ul>
+<% end %>
