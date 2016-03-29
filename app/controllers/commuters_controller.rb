@@ -36,10 +36,9 @@ class CommutersController < ApplicationController
 
   def show
     # Link takes you to this rail's arrival/departure info?
-    @the_info = MBTACommunicator.get_stop("Wellesley Farms")
-    @south_station_info = MBTACommunicator.get_stop("South Station")
+    @desired_stop = "Wellesley Farms"
+    @the_info = MBTACommunicator.get_stop(@desired_stop)
     @trains = []
-    @south_station_trains = []
 
     if @the_info[0]["trip"].nil? || @the_info[1]["trip"].nil?
       flash[:error] = "No upcoming scheduled stops at Wellesley Farms"
@@ -47,20 +46,6 @@ class CommutersController < ApplicationController
       @the_info.each do |train|
         Time.at(train["trip"][0]["sch_dep_dt"].to_i).strftime("%H:%M:%S %B %d %Y")
         @trains << { direction: train["direction_name"],
-          scheduled_departure: Time.at(
-            train["trip"][0]["sch_dep_dt"].to_i).strftime("%H:%M:%S %B %d %Y"),
-          predicted_departure: Time.at(
-            train["trip"][0]["pre_dt"].to_i).strftime("%H:%M:%S %B %d %Y")
-          }
-      end
-    end
-
-    if @south_station_info[0]["trip"].nil? || @south_station_info[1]["trip"].nil?
-      flash[:error] = "No upcoming scheduled stops at South Station"
-    else
-      @south_station_info.each do |train|
-        Time.at(train["trip"][0]["sch_dep_dt"].to_i).strftime("%H:%M:%S %B %d %Y")
-        @south_station_trains << { direction: train["direction_name"],
           scheduled_departure: Time.at(
             train["trip"][0]["sch_dep_dt"].to_i).strftime("%H:%M:%S %B %d %Y"),
           predicted_departure: Time.at(
