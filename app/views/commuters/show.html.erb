@@ -3,9 +3,10 @@
 <%= @inbound_scheduled_departure %>
 <%= @outbound_scheduled_departure %>
 <% @trains.each do |train| %>
-  <%= train[:direction] %>:
+  <% binding.pry %>
+  <%= train['direction'] %>:
   <ul>
-    <li>Scheduled departure: <%= train[:scheduled_departure] %></li>
-    <li>Predicted departure: <%= train[:predicted_departure] %></li>
+    <li>Scheduled departure: <%= train['scheduled_departure'] %></li>
+    <li>Predicted departure: <%= train['predicted_departure'] %></li>
   </ul>
 <% end %>
