@@ -1,4 +1,3 @@
-require_relative '../models/mbtaCommunicator.rb'
 require 'pry'
 require 'time'
 
@@ -13,15 +12,9 @@ end
 
 class CommutersController < ApplicationController
   def index
-    # Could have this retrieve the rails that the user uses most frequently
-    # And this links to the rail's show page?
-
-    # predicted_departure: Time.at(train["trip"][0]["pre_dt"].to_i)
-    # .strftime("%H:%M:%S %B %d %Y")
   end
 
   def show
-    # Link takes you to this rail's arrival/departure info?
     @desired_stop = "Wellesley Farms"
     @the_info = MBTACommunicator.get_stop(@desired_stop)
     @trains = []
