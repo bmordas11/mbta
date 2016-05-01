@@ -1,12 +1,4 @@
 <h1>Commuter Rail (<%= @desired_stop %> Stop)</h1>
 
-<%= @inbound_scheduled_departure %>
+ <p>Inbound scheduled arrival time: <%= @inbound_scheduled_arrival %></p>
 <%= @outbound_scheduled_departure %>
-<% @trains.each do |train| %>
-  <% binding.pry %>
-  <%= train['direction'] %>:
-  <ul>
-    <li>Scheduled departure: <%= train['scheduled_departure'] %></li>
-    <li>Predicted departure: <%= train['predicted_departure'] %></li>
-  </ul>
-<% end %>

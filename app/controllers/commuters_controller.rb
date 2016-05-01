@@ -17,24 +17,8 @@ class CommutersController < ApplicationController
   def show
     @desired_stop = "Wellesley Farms"
     @the_info = MBTACommunicator.get_stop(@desired_stop)
-    @trains = []
-    binding.pry
-
-    unless response["mode"].nil?
-      if @the_info[0]["trip"].nil? || @the_info[1]["trip"].nil?
-        flash[:error] = "No upcoming scheduled stops at #{@desired_stop}"
-      else
-        @the_info.each do |train|
-          Time.at(train["trip"][0]["sch_dep_dt"].to_i)
-            .strftime("%H:%M:%S %B %d %Y")
-          @trains << {
-            direction: train["direction_name"],
-            scheduled_departure: Time.at(train["trip"][0]["sch_dep_dt"].to_i)
-                .strftime("%H:%M:%S %B %d %Y"),
-            }
-        end
-      end
-    end
+    @inbound_scheduled_arrival = Time.at(@the_info['mode'][0]['route'][0]['direction'][0]['trip'][0]['sch_arr_dt'].to_i).strftime("%H:%M:%S %B %d %Y")
+    @outbound_scheduled_departure = "Outbound Info soon to come"
   end
 
 end
