@@ -1,1 +1,5 @@
 <h1>All Commuter Rails</h1>
+
+<% @all_routes.each do |route| %>
+  <div><%= link_to route, commuter_path(route) %></div>
+<% end %>

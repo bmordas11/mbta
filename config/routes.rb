@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  root "commuters#show"
+  root "commuters#index"
   resources :commuters, only: [:index, :show]
+  resources :stops, only: [:show]
 end
