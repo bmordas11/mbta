@@ -1,4 +1,5 @@
-<h1>Commuter Rail (<%= @desired_stop %> Stop)</h1>
+<h1>Commuter Rail (<%= @desired_route %> Line)</h1>
 
- <p>Inbound scheduled arrival time: <%= @inbound_scheduled_arrival %></p>
-<%= @outbound_scheduled_departure %>
+<% @all_stops.each do |stop| %>
+  <div><%= link_to stop.name, stop_path(stop.id) %></div>
+<% end %>
