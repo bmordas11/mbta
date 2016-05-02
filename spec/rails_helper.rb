@@ -11,7 +11,22 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+  config.include FactoryGirl::Syntax::Methods
+
   config.use_transactional_fixtures = true
+
+  config.before :each do
+    DatabaseCleaner.strategy = if Capybara.current_driver == :rack_test
+                                 :transaction
+                               else
+                                 :truncation
+                               end
+    DatabaseCleaner.start
+  end
+
+  config.after do
+    DatabaseCleaner.clean
+  end
 
   config.infer_spec_type_from_file_location!
 

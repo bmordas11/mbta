@@ -1,21 +1,19 @@
 # mbta
-A simple website to track the MBTA Commuter Rail
+### A simple website to track the MBTA Commuter Rail
 
 
-# This README would normally document whatever steps are necessary to get the application up and running.
-
-Things you may want to cover:
+# Information about the application
 
 * Ruby version
     - ruby version: 2.2.3
 
-* System dependencies
-
-* Configuration
-
 * Database creation
+    - Postgres database with ActiveRecord assist for SQL commands
+    - Running "rake db:create" will create the database locally
 
 * Database initialization
+    - Running "rake db:migrate" will run the database migrations
+    - The "rake db:seed" function will run the web-scrape
 
 * How to run the test suite
 
@@ -23,9 +21,8 @@ Things you may want to cover:
     - Displays the inbound arrival time of a specific MBTA train
 
 * Deployment instructions
-    - WEBrick local server host (http://localhost:3000/)
-    - Heroku live site (http://mbta-tracker.herokuapp.com/)
-
-* ...
+    - WEBrick local server host ("rails s", http://localhost:3000/)
+    - Heroku live site
+        (git push heroku master, http://mbta-tracker.herokuapp.com/)
 
 --------------------
