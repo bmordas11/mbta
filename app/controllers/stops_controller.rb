@@ -15,7 +15,6 @@ class StopsController < ApplicationController
     query = 'predictionsbystop'
     parameter = "&stop=#{@desired_stop}"
     the_info = MBTACommunicator.get_stop(query, parameter)
-    binding.pry
 
     if !the_info['mode'].nil?
       @trip = the_info['mode'][0]['route'][0]['direction'][0]
