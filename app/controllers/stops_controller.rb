@@ -1,4 +1,3 @@
-require 'pry'
 require 'time'
 
 class MBTACommunicator
@@ -11,7 +10,6 @@ class MBTACommunicator
 end
 
 class StopsController < ApplicationController
-
   def show
     @desired_stop = Stop.find(params[:id]).name
     query = 'predictionsbystop'
@@ -32,4 +30,5 @@ class StopsController < ApplicationController
       @scheduled_departure = '(No impending departures scheduled)'
     end
   end
+
 end
