@@ -2,7 +2,7 @@ class Commuter < ActiveRecord::Base
   def self.get_stop(query, parameter)
     HTTParty.get(
       "http://realtime.mbta.com/developer/api/v2/#{query}?" +
-      "api_key=#{ENV['MBTA_KEY']}#{parameter}&format=json"
+      "api_key=#{ENV["MBTA_KEY"]}#{parameter}&format=json"
     )
   end
 
