@@ -1,33 +1,29 @@
-require 'time'
-
-class MBTACommunicator
-  def self.get_stop(query, parameter)
-    HTTParty.get(
-      "http://realtime.mbta.com/developer/api/v2/#{query}?" +
-      "api_key=wX9NwuHnZU2ToO7GmGR9uw#{parameter}&format=json"
-    )
-  end
-end
-
 class StopsController < ApplicationController
   def show
     @desired_stop = Stop.find(params[:id]).name
-    query = 'predictionsbystop'
+    query = 'schedulebystop'
     parameter = "&stop=#{@desired_stop}"
-    the_info = MBTACommunicator.get_stop(query, parameter)
+    the_info = Commuter.get_stop(query, parameter)
+    @trains_available = the_info['mode'].present?
 
-    if !the_info['mode'].nil?
-      @trip = the_info['mode'][0]['route'][0]['direction'][0]
-      @inbound_scheduled_arrival = Time.at(
-        @trip['trip'][0]['sch_arr_dt'].to_i
-        ).strftime("%H:%M:%S %B %d %Y")
-      @scheduled_departure = Time.at(
-        @trip['trip'][0]['sch_dep_dt'].to_i
-        ).strftime("%H:%M:%S %B %d %Y")
-      @direction = @trip['direction_name']
-    else
-      @inbound_scheduled_arrival = '(No impending arrivals scheduled)'
-      @scheduled_departure = '(No impending departures scheduled)'
+    @trains = []
+    if @trains_available
+      the_info['mode'][0]['route'].each do |route|
+        trip = []
+        route['direction'].each do |train_direction|
+          this_train = {}
+          this_train[:direction] = train_direction['direction_name']
+          this_train[:arrival_time] = Time.at(train_direction['trip'][0]['sch_arr_dt'].to_i)
+          .strftime("%H:%M:%S %B %d %Y")
+          this_train[:departure_time] = Time.at(train_direction['trip'][0]['sch_arr_dt'].to_i)
+          .strftime("%H:%M:%S %B %d %Y")
+          trip << this_train
+        end
+        @trains << {
+          route: route['route_name'],
+          trip: trip
+        }
+      end
     end
   end
 
