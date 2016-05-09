@@ -13,8 +13,6 @@ class StopsController < ApplicationController
         route['direction'].each do |train_direction|
           this_train = {}
           this_train[:direction] = train_direction['direction_name']
-          this_train[:arrival_time] = Time.at(train_direction['trip'][0]['sch_arr_dt'].to_i)
-          .strftime("%H:%M:%S %B %d %Y")
           this_train[:departure_time] = Time.at(train_direction['trip'][0]['sch_arr_dt'].to_i)
           .strftime("%H:%M:%S %B %d %Y")
           trip << this_train
