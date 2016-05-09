@@ -2,12 +2,13 @@
 
 <% if @trains_available %>
   <% @trains.each do |train| %>
-    <div>Route Name: <%= train[:route] %></div>
-    <% train[:trip].each do |trip| %>
-      <div>Direction: <%= trip[:direction] %></div>
-      <div>Scheduled arrival time: <%= trip[:arrival_time] %></div>
-      <div>Scheduled departure time: <%= trip[:departure_time] %></div>
-    <% end %>
+    <div class="stops" style="float: left; padding: 20px;">
+      Route Name: <%= train[:route] %>
+      <% train[:trip].each do |trip| %>
+        <div>Direction: <%= trip[:direction] %></div>
+        <div>Scheduled departure time: <%= trip[:departure_time] %></div>
+      <% end %>
+    </div>
   <% end %>
 <% else %>
   <div>No upcoming trains scheduled</div>

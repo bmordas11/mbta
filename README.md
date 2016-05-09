@@ -13,15 +13,15 @@
 
 * Database initialization
     - Running "rake db:migrate" will run the database migrations
-    - The "rake db:seed" function will run the web-scrape
 
 * How to run the test suite
+    - "bundle exec rake" will run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
     - Displays the inbound arrival time of a specific MBTA train
 
 * Deployment instructions
-    - WEBrick local server host ("rails s", http://localhost:3000/)
+    - WEBrick local server host ("bundle exec rails s", http://localhost:3000/)
     - Heroku live site
         (git push heroku master, http://mbta-tracker.herokuapp.com/)
 
