@@ -14,6 +14,7 @@ Bundler.require(*Rails.groups)
 module Mbta
   class Application < Rails::Application
     config.time_zone = 'Eastern Time (US & Canada)'
+    config.active_record.default_timezone = 'Eastern Time (US & Canada)'
 
     config.active_record.raise_in_transactional_callbacks = true
   end
