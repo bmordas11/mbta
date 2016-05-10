@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="icon" type="image/png"
-    href="http://www.rtd-denver.com/img/fastracks/a-line-train-circle.png" />
-  <title><%= content_for?(:title) ? yield(:title) : "MBTA-tracker" %></title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-  <% end %>
+  <head>
+    <link rel="icon" type="image/png"
+      href="http://www.rtd-denver.com/img/fastracks/a-line-train-circle.png" />
+    <title><%= content_for?(:title) ? yield(:title) : "MBTA-tracker" %></title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+    <% end %>
 
-  <div class="top-bar">
-    <div class="top-bar-section container">
-      <ul class="menu">
-        <li>
-          <%= link_to 'Frequently Viewed Commuter Rails', commuters_path %>
-        </li>
-        <li>
-          <%= link_to 'South Station', stop_path(Stop.find_by(name: 'South Station')) %>
-        </li>
-      <ul>
+    <div class="top-bar">
+      <div class="top-bar-section">
+        <ul class="menu">
+          <li style="padding-left: 7px; padding-right: 7px;">
+            <%= link_to 'All Commuter Rails', commuters_path %>
+          </li>
+          <li style="padding-left: 7px; padding-right: 7px;">
+            <%= link_to 'South Station', stop_path(Stop.find_by(name: 'South Station')) %>
+          </li>
+        <ul>
+      </div>
     </div>
-  </div>
 
-  <%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>
