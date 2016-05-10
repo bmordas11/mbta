@@ -1,15 +1,17 @@
-<h1>The <%= @desired_stop %> Stop</h1>
+<div class="row">
+  <h2>The <%= @desired_stop %> Stop</h2>
 
-<% if @trains_available %>
-  <% @trains.each do |train| %>
-    <div class="stops" style="float: left; padding: 20px;">
-      Route Name: <%= train[:route] %>
-      <% train[:trip].each do |trip| %>
-        <div>Direction: <%= trip[:direction] %></div>
-        <div>Scheduled departure time: <%= trip[:departure_time] %></div>
-      <% end %>
-    </div>
+  <% if @trains_available %>
+    <% @trains.each do |train| %>
+      <div class="stops" style="float: left; padding: 20px;">
+        Route Name: <%= train[:route] %>
+        <% train[:trip].each do |trip| %>
+          <div>Direction: <%= trip[:direction] %></div>
+          <div>Scheduled departure time: <%= trip[:departure_time] %></div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div>No upcoming trains scheduled</div>
   <% end %>
-<% else %>
-  <div>No upcoming trains scheduled</div>
-<% end %>
+</div>
