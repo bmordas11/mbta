@@ -1,15 +1,4 @@
 /*
-* This is a manifest file that'll be compiled into application.css, which will include all the files
-* listed below.
-*
-* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
-* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
-*
-* You're free to add application-wide styles to this file and they'll appear at the bottom of the
-* compiled file so the styles you add here take precedence over styles defined in any styles
-* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
-* file per style scope.
-*
 *= require_tree .
 *= require_self
 */
@@ -25,18 +14,27 @@ meta.foundation-version{font-family:"/5.5.2/"}meta.foundation-mq-small{
 
 @import 'mixins';
 
-.container {
-  max-width: 1024px;
-  margin: 0 auto;
+$seashell: #ffffff;
+
+body {
+  background-color: $seashell;
+}
+
+.top-bar {
+  background-color: #a97d5d;
 }
 
 .top-bar-section {
-  display: inline-block;
+  max-width: 1024px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .top-bar-section li {
   display: inline-block;
-  margin-left: 1em;
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .flash {
@@ -44,15 +42,9 @@ meta.foundation-version{font-family:"/5.5.2/"}meta.foundation-mq-small{
   background-color: #3b9089;
 }
 
-.column {
-  display: inline-block;
-}
-
-.top-bar {
-  background-color: #c0c0c0;
-}
-
 .stops {
-  background-color: #32cd32;
+  background-color: #5c755e;
+  color: #fcf2e2;
+  margin: 3px;
   @include rounded();
 }
