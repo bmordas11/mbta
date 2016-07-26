@@ -20,7 +20,8 @@
             <%= link_to 'All Commuter Rails', commuters_path %>
           </li>
           <li style="padding-left: 7px; padding-right: 7px;">
-            <%= link_to 'South Station', stop_path(Stop.find_by(name: 'South Station')) %>
+            <%= binding.pry %>
+            <%= link_to 'South Station', stop_path(Stop.find_by(name: 'South Station').id) %>
           </li>
         <ul>
       </div>
