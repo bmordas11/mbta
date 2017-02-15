@@ -1,5 +1,6 @@
-class Commuter < ApplicationRecord
+# frozen_string_literal: true
 
+class Commuter < ApplicationRecord
   def self.get_stop(query, parameter)
     HTTParty.get(
       "http://realtime.mbta.com/developer/api/v2/#{query}?" +
@@ -37,5 +38,4 @@ class Commuter < ApplicationRecord
     "Newburyport/Rockport Line",
     "Providence/Stoughton Line"
   ].freeze
-
 end

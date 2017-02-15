@@ -29,3 +29,4 @@ bower.json
 
 .env
 .powenv
+secrets.yml
