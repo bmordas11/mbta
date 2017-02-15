@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails', '4.2.6'
-gem 'pg', '~> 0.15'
+gem 'rails', '5.0.1'
+gem 'railties', '5.0.1'
+gem 'actionpack', '5.0.1'
+gem 'pg', '0.19.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -13,6 +15,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'httparty'
 gem 'dotenv-rails'
+gem 'sprockets-rails'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -22,7 +25,6 @@ group :development, :test do
   gem 'capybara'
   gem 'faker'
 
-  gem 'quiet_assets'
   gem 'pry-rails'
   gem 'database_cleaner'
 end

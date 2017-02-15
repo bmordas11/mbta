@@ -1,4 +1,6 @@
-class Commuter < ActiveRecord::Base
+# frozen_string_literal: true
+
+class Commuter < ApplicationRecord
   def self.get_stop(query, parameter)
     HTTParty.get(
       "http://realtime.mbta.com/developer/api/v2/#{query}?" +

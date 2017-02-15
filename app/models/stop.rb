@@ -1,4 +1,6 @@
-class Stop < ActiveRecord::Base
+# frozen_string_literal: true
+
+class Stop < ApplicationRecord
   validates :name, presence: true
   validates :name, length: { in: 1..100 }
   validates :name, uniqueness: true
