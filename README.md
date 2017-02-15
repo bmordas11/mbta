@@ -2,10 +2,10 @@
 ### A simple website to track the MBTA Commuter Rail
 
 
-# Information about the application
+## Information about the application
 
 * Ruby version
-    - ruby version: 2.2.3
+    - ruby version: 2.3.0
 
 * Database creation
     - Postgres database with ActiveRecord assist for SQL commands
@@ -21,7 +21,7 @@
     - Displays the inbound arrival time of a specific MBTA train
 
 * Deployment instructions
-    - WEBrick local server host ("bundle exec rails s", http://localhost:3000/)
+    - WEBrick local server host ("rails s", http://localhost:3000/)
     - Heroku live site
         (git push heroku master, http://mbta-tracker.herokuapp.com/)
 
