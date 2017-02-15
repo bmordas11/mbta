@@ -1,4 +1,5 @@
-class Commuter < ActiveRecord::Base
+class Commuter < ApplicationRecord
+
   def self.get_stop(query, parameter)
     HTTParty.get(
       "http://realtime.mbta.com/developer/api/v2/#{query}?" +
@@ -36,4 +37,5 @@ class Commuter < ActiveRecord::Base
     "Newburyport/Rockport Line",
     "Providence/Stoughton Line"
   ].freeze
+
 end
