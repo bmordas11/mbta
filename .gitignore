@@ -10,8 +10,6 @@ capybara-*.html
 .rspec
 /log
 /tmp
-/db/*.sqlite3
-/db/*.sqlite3-journal
 /public/system
 /coverage/
 /spec/tmp
@@ -19,6 +17,7 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 config/initializers/secret_token.rb
+config/secrets.yml
 
 /.bundle
 /vendor/bundle
@@ -29,4 +28,4 @@ bower.json
 
 .env
 .powenv
-secrets.yml
+.byebug_history
