@@ -1,5 +1,3 @@
-/.bundle
-
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
@@ -10,9 +8,12 @@ capybara-*.html
 .rspec
 /log
 /tmp
+/app/assets/*/compiled/
+/public/assets/*
 /public/system
 /coverage/
 /spec/tmp
+/node_modules
 **.orig
 rerun.txt
 pickle-email-*.html
